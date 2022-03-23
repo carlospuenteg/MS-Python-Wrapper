@@ -1,15 +1,15 @@
 N1	: dato 0003
 N2	: dato 0007
 R	: dato 0000
-CONT	: dato 0000
-CERO	: dato 0000
-UNO	: dato 0001
-	mov CERO ,R
-	mov CERO ,CONT
-BUCLE	: cmp CONT ,N1
+ACC	: dato 0000
+ZERO	: dato 0000
+ONE	: dato 0001
+	mov ZERO ,R
+	mov ZERO ,ACC
+LOOP	: cmp ACC ,N1
 	beq FIN
 	add N2 ,R
-	add UNO ,CONT
-	cmp CERO ,CERO
-	beq BUCLE
-FIN	: beq FIN
+	add ONE ,ACC
+	cmp ZERO ,ZERO
+	beq LOOP
+END	: beq END
