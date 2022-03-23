@@ -1,0 +1,312 @@
+         _Y INTRODUCCION _W
+       
+
+       El programa M quina Sencilla es un simulador de un microprocesador, 
+       
+   en el que se ve el Camino de Datos o Unidad de Proceso, las se¤ales de 
+   
+   control y el uso de los buses.
+
+
+
+       Consta tambi‚n de dos pantallas, en las que se ve el contenido 
+       
+   de la memoria, una en forma de instrucciones y etiquetas (lenguaje
+   
+   ensamblador de la  MS), y otra en forma de valores, donde se ve el 
+   
+   contenido de cada posici¢n de memoria sin ninguna interpretaci¢n.
+
+
+
+       Tambi‚n consta de una zona donde se ve el valor de los registros,  
+       
+   y finalmente, al ejecutar una instruci¢n o microinstrucci¢n (etapa o 
+   
+   paso), se ve en un recudrado de que instrucci¢n y etapa se trata.
+__              _YCOLORES_W
+
+    Si las l¡neas est n en color _Rrojo_W, es que llevan el valor 1 si son
+
+    de un bit o que llevan informaci¢n relevante si son de m s.
+
+
+    Si est n realzadas en _Aazul_W es que llevan un cero.
+
+
+    Si est n en _Bnegro_W, no intervienen en la microinstrucci¢n.
+      
+
+
+
+
+      _GRequisitos m¡nimos_W
+
+   -Sistema con microprocesador 80286 o superior.
+
+   -Unidad de disqute 3 1/2".
+
+   -Un rat¢n.
+
+   -Placa de video VGA o compatibles.
+
+   -MS DOS versi¢n 3.3 o superior.
+
+   -400 kb libres de la memoria convencional.
+
+   -Conviene tener disco duro, aunque no es necesario.
+
+
+__              _YBOTONES Y OPCIONES DE MS(I)
+
+_G      BOTONES_W
+     
+      -_CInstruc_W: Ejecuta una instrucci¢n o la acaba de ejecutar.
+
+                Suele ser la apuntada por el registro PC, menos en
+
+                los saltos, que la direcci¢n de la instrucci¢n est 
+
+                en el registro RI (Operando Destino). 
+
+                Se reflejan los cambios en la Unidad de Proceso, los
+
+                registros y la memoria.
+
+
+
+      -_CMicroins_W: Ejecuta la etapa correspondiente de la instrucci¢n.
+
+                 Se reflejan los cambios en la memoria, en los registros
+
+                 y en el Camino de Datos. 
+
+
+
+      -_CFichero_W: Subopciones:
+
+                    *_CNuevo Programa_W: Borra el programa anterior.
+
+
+                    *_CCargar Memoria_W: Carga un programa que hubiera
+
+                                         sido grabado anteriormente.
+
+
+                    *_CGrabar Memoria_W: Graba un programa. Hay que indicar
+
+                                         el inicio y la longitud, aparte de
+
+                                         la descripci¢n.
+
+
+
+      -_CEnsamblar_W: Va ensamblando instrucciones a partir de la direcci¢n
+
+         apuntada por el PC, hasta que se pulse ESC o se pulse ENTER sin 
+
+         ninguna instrucci¢n.
+__              _YBOTONES Y OPCIONES DE MS(II)_W
+
+      -_CGO_W: Ejecuta un programa desde el inicio que ser  la direcci¢n del
+         
+         PC hasta el breakpoint.
+
+
+
+_G     OPCIONES_W
+
+      - Pulsando un dato en la ventana dato se puede modificar su valor.
+
+
+
+      - Pulsando un registro, se puede modificar.
+
+
+
+      - Pulsando una instrucci¢n tenemos las siguientes opciones:
+
+          *_CEtiqueta_W: Se asigna una cadena de caracteres (m ximo 6) a
+
+                     la direcci¢n.
+          
+
+          *_CInstruc_W: Se puede introducir una instrucci¢n. Es como el
+           
+                    bot¢n ensamblar, pero solo afecta a la direcci¢n.
+
+
+          *_CDato_W: Se puede introducir un dato en esa direcci¢n.
+
+
+          *_CBreakpoint_W: Asigna a esa direcci¢n el punto de ruptura de
+
+                       programa, imprescindible para ejecutar GO.
+
+          
+          *_CInicio_W: La direcci¢n de la instrucci¢n pasa ser el valor del
+
+                   PC, con lo que es la instrucci¢n inicio.
+
+        
+
+             
+___Y             DIRECCIONES_W
+  
+    A una direcci¢n se le puede:
+
+
+    -_CEtiquetar_W: Se le asocia una palabra(m ximo 6 letras en MS)
+
+
+    -_CIntroducir una instrucci¢n_W: Pulsando el bot¢n ensamblar,o pulsando 
+    
+      la instrucci¢n y la opci¢n "instruc". Con el bot¢n ensamblar se 
+
+      empieza a partir de la direcci¢n apuntada por el PC.
+
+
+
+    -_CIntroducir un dato_W: Hay varias formas:
+
+        _M*_W Haciendo clic con el rat¢n en la posici¢n y pulsando la opci¢n 
+
+          dato entre las que aparecen.
+
+
+        _M*_W En la ventana situada en la parte superior izquierda, 
+        
+          pulsando en la direcci¢n concreta. 
+        
+
+        _M*_W Finalmente, pulsando ensamblar o instrucci¢n y poniendo 
+        
+          dato "valor".
+
+
+
+    -_CBorrar_W: Pone la direcci¢n a cero, y si deja de ser para el programa 
+    
+     o direcci¢n o dato si lo era, y borra adem s la etiqueta asociada a su 
+     
+     direcci¢n.
+
+
+
+___Y              INTRODUCIR UN PROGRAMA EN MEMORIA _W
+       
+    -Se pone en el _CPC_W la _Cdirecci¢n de inicio_W del programa.
+
+
+    -Se pulsa el bot¢n _CENSAMBLAR_W.
+
+
+    -Se van introduciendo las _Cl¡neas del programa_W.
+
+        Por ejemplo tenemos que introducir:  hola: beq bucle
+
+        lo introducimos exactamente como est  cuando el programa
+
+        nos indique la direcci¢n.
+
+
+    -Cuando _Cno_W queramos introducir _Cm s lineas_W se pulsa _CENTER o ESCAPE_W.
+
+
+    * Notas: *Las direcciones que sean un dato podemos introducirlas 
+
+              como DATO "valor".   
+
+
+             *Conviene poner el breakpoint al programa cuando lo tecleamos
+
+              o cuando los cargamos. Esto se hace pulsando la direcci¢n de
+
+              fin de programa, y de las opciones que nos salgan pulsaremos
+
+              la de breakpoint (Saldr  a partir de ahora en _Rrojo).
+
+    
+    
+    _GModificaciones_W
+
+    -Si queremos modificar una s¢la instrucci¢n o etiqueta, pulsamos sobre
+
+     la direcci¢n de que se trate y ejecutamos la opci¢n que nos convenga.
+___Y               EJECUTAR UN PROGRAMA _W
+
+        Una vez que el programa est  cargado en la memoria, hay varias 
+        
+        maneras de ejecutarlo:
+
+
+        * _CPaso a paso_W mediante el bot¢n microinstrucci¢n.
+
+          Asi se ve como se desarrolla cada etapa; se ven los buses que
+
+        tienen importancia, y las se¤ales de control, adem s se ve los
+        
+        resultados de las microinstrucciones en la memoria y registros.
+
+
+
+       * _CEjecutar una instrucci¢n completa _W con el bot¢n instrucci¢n.
+
+         Se ven las se¤ales de control de la £ltima etapa de la instrucci¢n,
+
+       y el resultado de la instrucci¢n el la memoria y los registros.
+
+
+
+       * _CEjecuci¢n de un programa _W con el bot¢n GO.
+         
+         Hay que tener primero un breakpoint (punto de ruptura de programa,
+
+       o punto de finalizaci¢n), y despu‚s se ejecuta el programa, y se 
+
+       ve el resultado en los registros y en la memoria. No se ve como 
+
+       act£a ninguna microinstrucci¢n.
+
+
+       Todas estas opciones, act£an sobre la direcci¢n del PC.
+___Y             CARGAR Y GRABAR UN PROGRAMA _W
+
+
+    El proceso para _Gcargar_W un programa es:
+
+    - Pulsamos el bot¢n _Cfichero_W.
+    
+
+    - Pulsamos _ccargar memoria_W.
+
+
+    - Pulsamos en el _Cnombre_W del programa que queramos cargar.
+
+
+
+
+    
+    Para _Ggrabar_W un programa:
+
+    - Pulsamos el bot¢n _Cfichero_W.
+
+
+    - Pulsamos _Cgrabar memoria_W.
+
+
+    - Introducimos la _cdirecci¢n de inicio_W en la ventana que nos aparece.
+
+
+    - Introducimos la _clongitud_W en la ventana que nos sale.
+
+
+    - Pulsamos en el _Cn£mero o descripci¢n del fichero_w.
+
+
+    - Cambiamos la _Cdescripci¢n_W si la hab¡a o la introducimos nueva.
+
+
+
+
+
