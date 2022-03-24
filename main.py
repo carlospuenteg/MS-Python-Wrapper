@@ -54,4 +54,10 @@ def execute(code):
 
         index += 1
 
-print( execute(code) )
+def displayVars(vars):
+    ret = "\n"
+    for var in vars:
+        ret += var + "\t" + str(vars[var]) + "\n"
+    print(ret)
+
+displayVars( execute(code) )
