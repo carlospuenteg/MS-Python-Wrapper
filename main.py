@@ -54,10 +54,14 @@ def execute(code):
 
         index += 1
 
-def displayVars(vars):
+def displayVars(vars, base):
     ret = "\n"
     for var in vars:
+        if base == "hexa":
+            vars[var] = hex(vars[var])[2:].zfill(4)
+        elif base == "binary":
+            vars[var] = bin(vars[var])[2:].zfill(16)[-16:]
         ret += var + "\t" + str(vars[var]) + "\n"
     print(ret)
 
-displayVars( execute(code) )
+displayVars( execute(code), "dec" )
